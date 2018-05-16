@@ -1,8 +1,8 @@
 // Based on reusable chart pattern from https://bost.ocks.org/mike/chart/
 function gaugeChart() {
-  var margin = {top: 0, right: 0, bottom: 0, left: 100},
+  var margin = {top: 0, right: 0, bottom: 0, left: 0},
       width = 1200,
-      height = 700,
+      height = 1200,
       arcMin = -Math.PI/2,
       arcMax = Math.PI/2,
       innerRadius = 60,
@@ -60,7 +60,7 @@ function gaugeChart() {
       var arcG = svg.select("g.arc")
         .attr("transform", "translate(" +
           ((width - margin.left - margin.right) / 2) + "," +
-          ((height * (2 / 3)) + ")"));
+          ((height * (0.8)) + ")"));
 
       svg.select("g.arc .bg-arc")
         .datum({endAngle: arcMax})
@@ -108,11 +108,11 @@ function gaugeChart() {
       arcG.selectAll(".ticks")
         .style("font-size", "12px")
         .style("text-anchor", "middle")
-        .attr("x", function(d) { return Math.cos(arcScale(d) + arcMin) * (outerRadius + labelPad); })
+        .attr("x", function(d) { return Math.cos(arcScale(d) + arcMin) * 1.05*(outerRadius + labelPad); })
         .attr("y", function(d) {
           var yVal = Math.sin(arcScale(d) + arcMin) * (outerRadius + labelPad);
           return yVal < -1 ? yVal : -7;
-        }).text(function(d) { return d; });
+        }).text(function(d) { return ' ' + d + '% '; });
     });
   }
 

@@ -11,6 +11,10 @@
 		margin: 12px;
 	}
 
+	div.b {
+    line-height: 0.02;
+	}
+	
 	#power-gauge g.arc {
 		fill: steelblue;
 	}
@@ -29,10 +33,26 @@
 	</style>
   </head>
   <body>
-    <button id="superviseur">Superviseur</button>
-	<button id="technicien">Technicien</button>
-	<button id="gestionnaire">Gestion</button>
+	<div style="margin: 0 auto; text-align: center;">
+	<div class="b">
+    <button id="det">DIRECTEURS D’ENTREPRISES DE TÉLÉCOMMUNICATIONS</button>
+	<button id="gsi">GESTIONNAIRES DES SYSTÈMES INFORMATIQUES</button>
+	<button id="sfmi">SURVEILLANTS DANS LA FABRICATION DE MATÉRIEL ÉLECTRONIQUE</button>
+	<button id="iee">INGÉNIEURS ÉLECTRICIENS ET ÉLECTRONICIENS </button>
+	<button id="ii">INGÉNIEURS INFORMATICIENS (SAUF INGÉNIEURS ET CONCEPTEURS EN LOGICIEL)</button>
+	<button id="aci">ANALYSTES ET CONSULTANTS EN INFORMATIQUE</button>
+	<button id="abd">ANALYSTES DE BASES DE DONNÉES ET ADMINISTRATEURS DE DONNÉES</button>
+	<button id="icl">INGÉNIEURS ET CONCEPTEURS EN LOGICIEL</button>
     <div id="chart"></div>
+	<button id="pdm">PROGRAMMEURS ET DÉVELOPPEURS EN MÉDIAS INTERACTIFS</button>
+	<button id="cdw">CONCEPTEURS ET DÉVELOPPEURS WEB</button>
+	<button id="tge">TECHNOLOGUES ET TECHNICIENS EN GÉNIE ÉLECTRONIQUE ET ÉLECTRIQUE</button>
+	<button id="tri">TECHNICIENS DE RÉSEAU INFORMATIQUE </button>
+	<button id="asu">AGENTS DE SOUTIEN AUX UTILISATEURS</button>
+	<button id="esi">ÉVALUATEURS DE SYSTÈMES INFORMATIQUES</button>
+	<button id="mlc">MONTEURS DE LIGNES ET DE CÂBLES DE TÉLÉCOMMUNICATIONS</button>
+	<button id="irm">INSTALLATEURS ET RÉPARATEURS DE MATÉRIEL DE TÉLÉCOMMUNICATIONS</button>
+	<button id="amc">ASSEMBLEURS, MONTEURS, CONTRÔLEURS ET VÉRIFICATEURS DE MATÉRIEL ÉLECTRONIQUE</button></div>
     <script src="script.js"></script>
     <script>
     function randNumberBounds(min, max) {
@@ -51,27 +71,89 @@
       d3.select("#chart").datum([(0, 0)]).call(gauge);
 
       function resize() {
-        var gWidth = Math.min(d3.select("#chart").node().offsetWidth, 500);
-        gauge.width(gWidth).innerRadius(gWidth / 10).outerRadius((gWidth / 4) + 40);
+        var gWidth = Math.min(d3.select("#chart").node().offsetWidth, 700);
+        gauge.width(gWidth).innerRadius(gWidth / 8).outerRadius((gWidth / 5) + 50);
         d3.select("#chart").call(gauge);
       }
 
       resize();
       window.addEventListener("resize", resize);
 
-      var button = document.getElementById("superviseur");
+      var button = document.getElementById("det");
       button.addEventListener("mouseover", function() {
-        d3.select("#chart").datum([(0, 95)]).call(gauge);
+        d3.select("#chart").datum([(0, 66)]).call(gauge);
       });
-	  var button = document.getElementById("technicien");
-      button.addEventListener("mouseover", function() {
-        d3.select("#chart").datum([(0, 63)]).call(gauge);
-      });
-	  var button = document.getElementById("gestionnaire");
+	  var button = document.getElementById("gsi");
       button.addEventListener("mouseover", function() {
         d3.select("#chart").datum([(0, 75)]).call(gauge);
       });
+	  var button = document.getElementById("sfmi");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 63)]).call(gauge);
+      });
+	  var button = document.getElementById("iee");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 90)]).call(gauge);
+      });
+	  var button = document.getElementById("ii");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 87)]).call(gauge);
+      });
+	  var button = document.getElementById("aci");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 74)]).call(gauge);
+      });
+	  var button = document.getElementById("abd");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 70)]).call(gauge);
+      });
+	  var button = document.getElementById("icl");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 86)]).call(gauge);
+      });
+	  var button = document.getElementById("pdm");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 84)]).call(gauge);
+      });
+	  var button = document.getElementById("cdw");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 72)]).call(gauge);
+      });
+	  var button = document.getElementById("tge");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 90)]).call(gauge);
+      });
+	  var button = document.getElementById("tri");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 83)]).call(gauge);
+      });
+	  var button = document.getElementById("asu");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 82)]).call(gauge);
+      });
+	  var button = document.getElementById("esi");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 70)]).call(gauge);
+      });
+	  var button = document.getElementById("mlc");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 95)]).call(gauge);
+      });
+	  var button = document.getElementById("irm");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 90)]).call(gauge);
+      });
+	  var button = document.getElementById("tmi");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 0)]).call(gauge);
+      });
+	  var button = document.getElementById("amc");
+      button.addEventListener("mouseover", function() {
+        d3.select("#chart").datum([(0, 50)]).call(gauge);
+      });
+	  
     })()
     </script>
+	
 </body>
 </html>
