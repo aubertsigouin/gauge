@@ -30,20 +30,81 @@
 		font-weight: bold;
 		fill: #666;
 	}
+	
+	#container {
+    width:75%;
+    text-align:left;
+	}
+
+	#left {
+    float:left;
+    width:100px;
+    height: 20px;
+	}
+
+	#center {
+	float:center;
+    display: inline-block;
+    margin:0 auto;
+    width:1000px;
+    height: 1000px;
+	}
+
+	#right {
+    float:right;
+    width:300px;
+    height: 20px;
+	}
+	
+	.btn-group {
+	display: inline-block;  
+}
+
+.btn-group .btn {
+  display: block;
+  width: 100%;
+}
+	
 	</style>
   </head>
   <body>
-	<div style="margin: 0 auto; text-align: center;">
-	<div class="b">
-    <button id="det">DIRECTEURS D’ENTREPRISES DE TÉLÉCOMMUNICATIONS</button>
-	<button id="gsi">GESTIONNAIRES DES SYSTÈMES INFORMATIQUES</button>
-	<button id="sfmi">SURVEILLANTS DANS LA FABRICATION DE MATÉRIEL ÉLECTRONIQUE</button>
-	<button id="iee">INGÉNIEURS ÉLECTRICIENS ET ÉLECTRONICIENS </button>
-	<button id="ii">INGÉNIEURS INFORMATICIENS (SAUF INGÉNIEURS ET CONCEPTEURS EN LOGICIEL)</button>
-	<button id="aci">ANALYSTES ET CONSULTANTS EN INFORMATIQUE</button>
-	<button id="abd">ANALYSTES DE BASES DE DONNÉES ET ADMINISTRATEURS DE DONNÉES</button>
-	<button id="icl">INGÉNIEURS ET CONCEPTEURS EN LOGICIEL</button>
-    <div id="chart"></div>
+	<div id="container">
+	<div id="left">
+	<style>
+	.button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 12px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+	
+	
+}
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+	</style>
+	<div class="btn-group">
+	<table>
+	<button id="det" class='button button1'>DIRECTEURS D’ENTREPRISES DE TÉLÉCOMMUNICATIONS</button>
+	<button id="gsi" class='button button1'>GESTIONNAIRES DES SYSTÈMES INFORMATIQUES</button>
+	<button id="sfmi" class='button button1'>SURVEILLANTS DANS LA FABRICATION DE MATÉRIEL ÉLECTRONIQUE</button>
+	<button id="iee" class='button button1'>INGÉNIEURS ÉLECTRICIENS ET ÉLECTRONICIENS </button>
+	<button id="ii" class='button button1'>INGÉNIEURS INFORMATICIENS (SAUF INGÉNIEURS ET CONCEPTEURS EN LOGICIEL)</button>
+	<button id="aci" class='button button1'>ANALYSTES ET CONSULTANTS EN INFORMATIQUE</button>
+	<button id="abd" class='button button1'>ANALYSTES DE BASES DE DONNÉES ET ADMINISTRATEURS DE DONNÉES</button>
+	<!-- <button id="icl">INGÉNIEURS ET CONCEPTEURS EN LOGICIEL</button>
 	<button id="pdm">PROGRAMMEURS ET DÉVELOPPEURS EN MÉDIAS INTERACTIFS</button>
 	<button id="cdw">CONCEPTEURS ET DÉVELOPPEURS WEB</button>
 	<button id="tge">TECHNOLOGUES ET TECHNICIENS EN GÉNIE ÉLECTRONIQUE ET ÉLECTRIQUE</button>
@@ -52,7 +113,14 @@
 	<button id="esi">ÉVALUATEURS DE SYSTÈMES INFORMATIQUES</button>
 	<button id="mlc">MONTEURS DE LIGNES ET DE CÂBLES DE TÉLÉCOMMUNICATIONS</button>
 	<button id="irm">INSTALLATEURS ET RÉPARATEURS DE MATÉRIEL DE TÉLÉCOMMUNICATIONS</button>
-	<button id="amc">ASSEMBLEURS, MONTEURS, CONTRÔLEURS ET VÉRIFICATEURS DE MATÉRIEL ÉLECTRONIQUE</button></div>
+	<button id="amc">ASSEMBLEURS, MONTEURS, CONTRÔLEURS ET VÉRIFICATEURS DE MATÉRIEL ÉLECTRONIQUE</button>-->
+	</table>
+	</div>
+	</div>
+	<div id="center">
+	<div id="chart"></div>
+	</div>
+	</div>
     <script src="script.js"></script>
     <script>
     function randNumberBounds(min, max) {
@@ -63,15 +131,15 @@
 
     (function() {
       var gauge = gaugeChart()
-        .width(300)
-        .height(300)
+        .width(500)
+        .height(500)
         .innerRadius(50)
         .outerRadius(80);
 
       d3.select("#chart").datum([(0, 0)]).call(gauge);
 
       function resize() {
-        var gWidth = Math.min(d3.select("#chart").node().offsetWidth, 700);
+        var gWidth = Math.min(d3.select("#chart").node().offsetWidth, 1000);
         gauge.width(gWidth).innerRadius(gWidth / 8).outerRadius((gWidth / 5) + 50);
         d3.select("#chart").call(gauge);
       }
@@ -142,10 +210,6 @@
 	  var button = document.getElementById("irm");
       button.addEventListener("mouseover", function() {
         d3.select("#chart").datum([(0, 90)]).call(gauge);
-      });
-	  var button = document.getElementById("tmi");
-      button.addEventListener("mouseover", function() {
-        d3.select("#chart").datum([(0, 0)]).call(gauge);
       });
 	  var button = document.getElementById("amc");
       button.addEventListener("mouseover", function() {

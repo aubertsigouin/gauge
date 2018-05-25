@@ -1,6 +1,6 @@
 // Based on reusable chart pattern from https://bost.ocks.org/mike/chart/
 function gaugeChart() {
-  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  var margin = {top: 0, right: 0, bottom: 0, left: 100},
       width = 1200,
       height = 1200,
       arcMin = -Math.PI/2,
@@ -52,7 +52,7 @@ function gaugeChart() {
 
       // Update the outer dimensions.
       var svg = selection.select("svg");
-      svg.attr("width", width).attr("height", height);
+      svg.attr("width", 1000).attr("height", 1000);
       // Update the inner dimensions.
       var g = svg.select("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
